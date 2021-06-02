@@ -42,7 +42,16 @@ def without_duplicates(words):
         <class 'list'>
     """
 
-    return []
+    word_dupes = set()
+
+    for word in words:
+        if word not in word_dupes:
+            word_dupes.add(word)
+
+    # word_dupes.add(word) for word in words if word not in word_dupes
+
+    return list(word_dupes)
+    # []
 
 
 def find_unique_common_items(items1, items2):
