@@ -127,8 +127,14 @@ def get_sum_zero_pairs(numbers):
         >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
         [[-1, 1], [0, 0]]
     """
+    
+    nums_dict = {}
 
-    return []
+    for i in numbers:
+        if 0 - i in numbers and 0 - i not in nums_dict:
+            nums_dict[i] = [i, -i]
+
+    return nums_dict.values()
 
 
 def top_chars(phrase):
