@@ -87,19 +87,18 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
-    common_items = {}
+    commons = {}
+    unique_commons = set()
 
-    for item in items1:
-        common_items[item] = 1
+    for i in items1:
+        commons[i] = 1
 
-    for item in items2:
-        if common_items[item] = 1:
-            common_items[item] += 1
+    # for i in items2:
+    #     if commons[i] == 1:
+    #         unique_commons.add(i)
 
-    # return set of items where value = 2
-
-    unique_commons = item for item in common_items if common_items[item] == 2
-    return set(unique_commons)
+    unique_commons = {i for i in items2 if commons[i] == 1}
+    return unique_commons
 
 
 def get_sum_zero_pairs(numbers):
