@@ -48,11 +48,9 @@ def without_duplicates(words):
         if word not in word_dupes:
             word_dupes.add(word)
 
-    # word_dupes.add(word) for word in words if word not in word_dupes
+    # word_dupes = {word for word in words if word not in word_dupes}
 
     return list(word_dupes)
-    # []
-
 
 def find_unique_common_items(items1, items2):
     """Produce the set of *unique* common items in two lists.
@@ -89,12 +87,20 @@ def find_unique_common_items(items1, items2):
 
     commons = {}
 
+    unique_commons = set()
+
     for i in items1:
         commons[i] = 1
 
     unique_commons = {i for i in items2 if commons[i] == 1}
+    # print(commons)
+    # for i2 in items2:
+    #     if commons[i2]:
+    #         unique_commons.add(i2)
+
     return unique_commons
 
+# getting KeyError: 1 on last doctest w/ different datatypes
 
 def get_sum_zero_pairs(numbers):
     """Given list of numbers, return list of pairs summing to 0.
