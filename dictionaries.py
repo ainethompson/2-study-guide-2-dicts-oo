@@ -88,14 +88,9 @@ def find_unique_common_items(items1, items2):
     """
 
     commons = {}
-    unique_commons = set()
 
     for i in items1:
         commons[i] = 1
-
-    # for i in items2:
-    #     if commons[i] == 1:
-    #         unique_commons.add(i)
 
     unique_commons = {i for i in items2 if commons[i] == 1}
     return unique_commons
@@ -162,7 +157,18 @@ def top_chars(phrase):
 
     """
 
-    return []
+    chars = {}
+
+    for char in phrase:
+        if char != ' ':
+            if char not in chars:
+                chars[char] = 1
+            else:
+                chars[char] += 1
+
+    top_char = max(chars.values())
+
+    return [k for k,v in chars.items() if v == top_char]
 
 #####################################################################
 # You can ignore everything below this.
